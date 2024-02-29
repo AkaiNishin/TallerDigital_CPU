@@ -1,13 +1,14 @@
 `timescale 1ns / 1ps
+//Justin Corea M - 2020045294
 
-//////////////////////////////////////////////////////////////////////////////////
+module MedioSumador(
+   input    operandX,
+   input    operandY,
+   output   sum, 
+   output   carryOut
+);
 
-
-module medio_sum(
- input x, y,
- output s, c
-    );
- assign s = x^y;
- assign c = x&y;
+ assign sum = operandX ^ operandY;
+ assign carryOut = operandX & operandY;
      
 endmodule

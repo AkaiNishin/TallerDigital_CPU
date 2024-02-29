@@ -1,38 +1,45 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
+//Justin Corea M - 2020045294
 
-//////////////////////////////////////////////////////////////////////////////////
+module SumadorNibble(
+      input  [3 : 0] operandX,
+      input  [3 : 0] operandY,
+      input          carry0,
+      output [3 : 0] sum,   
+      output         carry4,
+);
+      wire [3 : 1] carryN
 
-module sum_nibble(
-input [3:0] a, b,
-input c0,
-output [3:0] s,
-output c4,
-wire [3:1] c
-    );
- sum_comp bit0 (
-        .x({a[0]}),
-        .y({b[0]}),
-        .z(c0),
-        .s({s[0]}),
-        .c({c[1]}));
- 
- sum_comp bit1 (
-        .x({a[1]}),
-        .y({b[1]}),
-        .z({c[1]}),
-        .s({s[1]}),
-        .c({c[2]})); 
-  sum_comp bit2 (
-        .x({a[2]}),
-        .y({b[2]}),
-        .z({c[2]}),
-        .s({s[2]}),
-        .c({c[3]}));
-  sum_comp bit3 (
-        .x({a[3]}),
-        .y({b[3]}),
-        .z({c[3]}),
-        .s({s[3]}),
-        .c(c4));          
+      SumadorCompleto bit0 (
+            .operandX   (operandX[0]),
+            .operandY   (operandY[0]),
+            .carryIn    (carry0),
+            .sum        (sum[0]),
+            .carryOut   (carryN[1])
+      );
+      
+      SumadorCompleto bit1 (
+            .operandX   (operandX[1]),
+            .operandY   (operandY[1]),
+            .carryIn    (carryN[1]),
+            .sum        (sum[1]),
+            .carryOut   (carryN[2])
+      ); 
+      
+      SumadorCompleto bit2 (
+            .operandX   (operandX[2]),
+            .operandY   (operandY[2]),
+            .carryIn    (carryN[2]),
+            .sum        (sum[2]),
+            .carryOut   (carryN[3])
+      );
+      
+      SumadorCompleto bit3 (
+            .operandX   (operandX[3]),
+            .operandY   (operandY[3]),
+            .carryIn    (carryN[3]),
+            .sum        (sum[3]),
+            .carryOut   (carry4)
+      );  
+
 endmodule
