@@ -1,52 +1,35 @@
 `timescale 1ns / 1ps
+//Justin Corea M - 2020045294
 
-module Mux4_1_tb;
+module Mux_4_1_tb;
+    parameter PERIOD = 5;
 
-    // Parámetros
-    parameter PERIOD = 20; // Periodo de reloj
-    parameter SIM_TIME = 400; // Tiempo de simulación
+    reg       clk = 0;
+    reg [3:0] inputData;
+    reg [1:0] selection;
+    wire      outputData;
 
-    // Definición de señales
-    reg [3:0] datos_in;
-    reg [1:0] sel;
-    wire out;
-    reg clk;
+    initial begin
+        forever #PERIOD clk = ~clk;
+    end
 
-    // Instancia del multiplexor 4 a 1
-    Mux4_1 uut (
-        .datos_in(datos_in),
-        .sel(sel),
-        .out(out)
+    Mux_4_1 DUT (
+        .inputData  (inputData),
+        .selection  (selection),
+        .outputData (outputData)
     );
 
-    // Generación del reloj
     initial begin
-        clk = 0;
-        forever #(PERIOD / 2) clk = ~clk;
-    end
+        inputData = 0;
+        selection = 0;
 
-    // Estímulo
-    initial begin
-        // Inicialización de valores de entrada
-        datos_in = 4'b0000;
-        sel = 2'b00;
-
-        // Ciclo de simulación
-        repeat (SIM_TIME) begin
-            # (PERIOD / 4) datos_in = datos_in + 1; // Incrementa datos_in cada cuarto de período de reloj
-            # (PERIOD / 4) sel = sel + 1; // Incrementa sel cada cuarto de período de reloj después de datos_in
+        for (integer i = 0; i < 10; i = i + 1) begin
+            #PERIOD
+            inputData = $random;
+            selection = $random;
         end
-
-        // Finalización de la simulación
-        #20 $finish;
-    end
-
-    // Mostrar resultados
-    always @(posedge clk) begin
-        $display("Time = %t, datos_in = %b, sel = %d, out = %b", $time, datos_in, sel, out);
+        #PERIOD
+        $finish;
     end
 
 endmodule
-
-
-

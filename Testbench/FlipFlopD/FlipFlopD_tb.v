@@ -1,51 +1,38 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 20.02.2024 13:49:54
-// Design Name: 
-// Module Name: FlipFlopD_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+//Justin Corea M - 2020045294
 
 module FlipFlopD_tb;
-    reg clk = 0, reset, D;
-    wire Q;
+    parameter PERIOD = 5;
+
+    reg  clk = 0;
+    reg  reset;
+    reg  inputData;
+    wire outputData;
     
-    FlipFlopD DUT(
-    .clk        (clk),
-    .reset      (reset),
-    .D          (D),
-    .Q          (Q)
-    );
-    
-    always begin
-        #5 clk = ~clk;
+    initial begin
+        forever #PERIOD clk = ~clk;
     end
+
+    FlipFlopD DUT(
+        .clk        (clk),
+        .reset      (reset),
+        .inputData  (inputData),
+        .outputData (outputData)
+    );
     
     initial begin
         for (integer i = 0; i < 10; i = i + 1) begin
-            #5
+            #PERIOD
             reset = 0;
-            D = $urandom % 2;
+            inputData = {$urandom} % 2;
         end
         for (integer i = 0; i < 10; i = i + 1) begin
-            #5
+            #PERIOD
             reset = 1;
-            D = $urandom % 2;
+            inputData = {$urandom} % 2;
         end
+        #PERIOD
         $finish;
     end
+
 endmodule
