@@ -24,8 +24,22 @@ module Datapath_Unit_tb;
         end
     end
 
+    Datapath_Unit DUT(
+        .clk            (clk),
+        .jump           (jump),
+        .beq            (beq),
+        .mem_read       (mem_read),
+        .mem_write      (mem_write),
+        .alu_src        (alu_src),
+        .reg_dst        (reg_dst),
+        .mem_to_reg     (mem_to_reg),
+        .reg_write      (reg_write),
+        .bne            (bne),
+        .alu_op         (alu_op),
+        .opcode         (opcode)        
+    );
+    
     initial begin
-        integer i;
         jump = 0;
         beq = 0;
         mem_read = 0;
@@ -37,7 +51,7 @@ module Datapath_Unit_tb;
         bne = 0;
         alu_op = 0;
 
-        for (i = 0; i < 30; i = i + 1) begin
+        for (integer i = 0; i < 30; i = i + 1) begin
             #PERIOD;
             jump = $random;
             beq = $random;
