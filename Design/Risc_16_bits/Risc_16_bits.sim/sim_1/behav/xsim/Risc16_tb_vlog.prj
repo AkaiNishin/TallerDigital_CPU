@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../desde git/ALU/ALU.v" \
+"../../../../../desde git/Alu control/Alu control.v" \
+"../../../../Risc_16_bits.srcs/sources_1/new/Archivo de registro.v" \
+"../../../../../desde git/ControlUnit/Control_Unit.v" \
+"../../../../../desde git/DataMemory/Data_Memory.v" \
+"../../../../../desde git/Datapath_Unit/Datapath_Unit.v" \
+"../../../../../desde git/MemoriaDeInstrucciones/MemoriaDeInstrucciones.v" \
+"../../../../Risc_16_bits.srcs/sources_1/new/Risc_16_bit.v" \
+"../../../../Risc_16_bits.srcs/sim_1/new/Tb del Risc16.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

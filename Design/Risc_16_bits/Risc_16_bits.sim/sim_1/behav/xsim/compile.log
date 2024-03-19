@@ -1,0 +1,12 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/ALU/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/Alu control/Alu control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu_cntrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/Risc_16_bits/Risc_16_bits.srcs/sources_1/new/Archivo de registro.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module GPRs
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/ControlUnit/Control_Unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_Unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/DataMemory/Data_Memory.v" into library xil_defaultlib
+ERROR: [VRFC 10-3195] cannot open include file 'Parametros.v' [C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/DataMemory/Data_Memory.v:2]
+INFO: [VRFC 10-311] analyzing module Data_Memory
+ERROR: [VRFC 10-2865] module 'Data_Memory' ignored due to previous errors [C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/DataMemory/Data_Memory.v:5]
