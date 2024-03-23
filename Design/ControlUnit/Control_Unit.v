@@ -14,6 +14,7 @@ module Control_Unit(
     output reg          mem_to_reg,
     output reg          reg_write
 );
+
     always @(*) begin
         case (opcode)
             //LW

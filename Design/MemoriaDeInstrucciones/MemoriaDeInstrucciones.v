@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+//`include "Parametros.v"
 //Justin Corea M - 2020045294
 
 module MemoriaDeInstrucciones (
@@ -12,7 +13,7 @@ module MemoriaDeInstrucciones (
     initial begin
         //Es posible que pida una ruta mas especifica al archivo test.prog
         //readmemb crea un arreglo memory leyendo el archivo test.prog de la linea 0 a la 14 (15 lineas)
-        $readmemb("test.prog", memory, 0, 14);
+        $readmemb("test.prog", memory, 0, 8);
     end
 
     assign instructionOut = memory[ROM_Address];

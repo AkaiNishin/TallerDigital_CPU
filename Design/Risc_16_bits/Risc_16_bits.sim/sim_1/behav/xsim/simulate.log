@@ -1,0 +1,5 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+WARNING: File test.prog referenced on C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/MemoriaDeInstrucciones/MemoriaDeInstrucciones.v at line 16 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+WARNING: File test.data referenced on C:/Jr09/TEC/Semestre 11/Taller de diseo digital/desde git/DataMemory/Data_Memory.v at line 22 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+$finish called at time : 100 ns : File "C:/Jr09/TEC/Semestre 11/Taller de diseo digital/Risc_16_bits/Risc_16_bits.srcs/sim_1/new/Tb del Risc16.v" Line 16

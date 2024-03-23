@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+//`include "Parametros.v"
 //Justin Corea M - 2020045294
 
 module Data_Memory(
